@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Sentiment Review</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f0ff;
+            color: #4b0082;
+        }
+
+        .header {
+            background-color: #6a0dad;
+            color: white;
+            text-align: center;
+            padding: 50px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            font-size: 3em;
+            margin: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 50px 0;
+        }
+
+        .about-section {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .about-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #4b0082;
+        }
+
+        .about-section p {
+            font-size: 1.2em;
+            line-height: 1.5;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .form-section {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .form-section input[type="text"], .form-section input[type="file"] {
+            padding: 10px;
+            width: 50%;
+            max-width: 400px;
+            border: 2px solid #4b0082;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .form-section input[type="submit"] {
+            background-color: #6a0dad;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .form-section input[type="submit"]:hover {
+            background-color: #4b0082;
+        }
+
+        .prediction-result {
+            font-size: 1.5em;
+            margin-top: 20px;
+            color: #4b0082;
+        }
+
+        .profile-section {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .profile-section img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        .profile-section h3 {
+            margin: 10px 0 5px 0;
+            font-size: 1.5em;
+            color: #4b0082;
+        }
+
+        .profile-section p {
+            font-size: 1em;
+            color: #333;
+            margin: 5px 0;
+        }
+
+        .footer {
+            background-color: #6a0dad;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Product Sentiment Review</h1>
+    </div>
+
+    <div class="container">
+        <div class="about-section">
+            <h2>About the Project</h2>
+            <p>This project helps you understand the emotion behind your customers' words. This NLP sentiment prediction tool enables you to analyze the emotions expressed in your text data, empowering you to better understand your customers and improve your business.</p>
+        </div>
+
+        <div class="form-section">
+            <form method="POST" enctype="multipart/form-data">
+                <input type="text" name="text" placeholder="Enter text here to analyze sentiment"><br>
+                <input type="submit" value="Analyze Sentiment">
+            </form>
+            <br>
+            <form method="POST" enctype="multipart/form-data">
+                <input type="file" name="file"><br>
+                <input type="submit" value="Upload CSV for Bulk Prediction">
+            </form>
+            <div class="prediction-result">
+                {% if prediction %}
+                    <p>Predicted Sentiment: {{ prediction }}</p>
+                {% elif error %}
+                    <p style="color:red;">{{ error }}</p>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="profile-section">
+            <img src="{{ url_for('static', filename='dataqueen.jpg') }}" alt="Profile Image">
+            <h3>Abayomi-Alli Ayomide</h3>
+            <p>Email: abayomialliayomide@gmail.com</p>
+            <p>I am an experienced data scientist with expertise in building solutions for financial organizations.</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Product Sentiment Review. All rights reserved.</p>
+    </div>
+
+</body>
+</html>
