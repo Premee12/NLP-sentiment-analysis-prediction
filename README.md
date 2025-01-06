@@ -1,4 +1,4 @@
-# NLP Sentiment Analysis Project
+# NLP Sentiment Analysis End-End Project
 
 ## Project Overview
 
